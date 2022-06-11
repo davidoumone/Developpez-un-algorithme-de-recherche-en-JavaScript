@@ -60,14 +60,166 @@ header {
 
 /* FILTRES DE RECHERCHES */
 
+.filter-buttons {
+  position: relative;
+  top: 200px;
+  left: 70px;
+  width: max-content;
+}
+
+.tagsresult {
+  position: relative;
+  bottom: 20px;
+}
+
+/*bouton ingredients*/
+.dropbtn {
+  background-color: #3282f7;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.dropbtn::placeholder {
+  color: white;
+}
+
+.arrowbottom {
+  color: white;
+  position: absolute;
+  left: 15em;
+  top: 2.1em;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3282f7;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.wrap {
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+.show {
+  display: block;
+}
+
+.rotation {
+  transform: rotate(180deg);
+}
+
+/*bouton appareils*/
+
+.btnappareil {
+  background-color: #68d9a4;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.btnappareil::placeholder {
+  color: white;
+}
+
+.arrowbottom2 {
+  color: white;
+  position: absolute;
+  left: 32em;
+  top: 2.1em;
+}
+
+.content-appareils {
+  display: none;
+  position: absolute;
+  background-color: #68d9a4;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.content-appareils a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+.showappareils {
+  display: block;
+}
+
+/*bouton ustensiles*/
+
+.btnustensiles {
+  background-color: #ed6454;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.btnustensiles::placeholder {
+  color: white;
+}
+
+.arrowbottom3 {
+  color: white;
+  position: absolute;
+  left: 50em;
+  top: 2.1em;
+}
+
+.content-ustensiles {
+  display: none;
+  position: absolute;
+  background-color: #ed6454;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.content-ustensiles a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+.showustensiles {
+  display: block;
+}
+
 /* CONTENU RECETTES */
 
 #content-recettes {
   height: max-content;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 3em;
 }
 
 .menu-card {
@@ -89,30 +241,30 @@ header {
 
 .title-recette {
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   width: max-content;
   position: absolute;
-  top: -10px;
+  top: -5px;
   left: 10px;
 }
 
 .time {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   width: 115px;
   padding: 10px;
   position: absolute;
   top: 0;
-  left: 260px;
+  left: 335px;
 }
 
 .time-clock {
-  width: 20%;
+  width: 15%;
 }
 
 .time-minutes {
-  font-size: 20px;
+  padding-left: 5px;
+  font-size: 18px;
 }
 
 .menu-ingredients {
@@ -132,65 +284,14 @@ header {
 
 .ingredients-quantite li {
   white-space: nowrap;
+  line-height: 15px;
   font-size: 13px;
 }
 
 .ingredients-description p {
-  font-size: 13px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  header {
-    margin-left: 38px;
-  }
-  #logo {
-    width: 100%;
-  }
-
-  .search-barre {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-  }
-
-  #content-recettes {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-  }
-
-  .menu-card {
-    margin-left: 3%;
-    max-width: 100%;
-  }
-
-  .menu-card-content {
-    max-width: 100%;
-  }
-
-  .title-recette {
-    font-size: 15px;
-    font-weight: 900;
-    position: relative;
-    top: 20px;
-  }
-
-  .time {
-    position: absolute;
-    top: 10px;
-    left: 191px;
-  }
-
-  .time-clock {
-    width: 18px;
-    position: relative;
-    top: 3px;
-    left: 12px;
-  }
-
-  .time-minutes {
-    font-size: 18px;
-  }
+  font-size: 11px;
+  height: 165px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
