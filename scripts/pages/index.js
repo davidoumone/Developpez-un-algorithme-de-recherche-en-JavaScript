@@ -2,12 +2,53 @@ import { recipes } from "../../data/recipes.js";
 
 
 
+function displaydropdowningredients() {
+  let dropdownIngredient = "";
+  recipes.forEach(ingredient => {
+    const Ingredientdropdown = `${dropdownIngredients(ingredient.ingredients)}`
+    dropdownIngredient += Ingredientdropdown
+  });
+  document.querySelector("#ingredient").innerHTML = dropdownIngredient;
+}
+
+displaydropdowningredients();
+
+function dropdownIngredients(ingredients) {
+  let ingredientelement = "";
+  ingredients.forEach(element => {
+    const elementingredient = `<a href="#">${element.ingredient}</a>`
+    ingredientelement += elementingredient
+  })
+  return ingredientelement;
+}
 
 
-/**
- * La fonction displaymenu() est une boucle forEach qui parcourt le tableau des recettes et crée une
- * variable appelée sectionmenu qui est une chaîne de code HTML qui est ensuite ajoutée au code HTML
- */
+function displaydropdownAppareils() {
+  let dropdownAppareil = "";
+  recipes.forEach(appareil => {
+    const Appareildropdown = `<a href="#">${appareil.appliance}</a>`
+    dropdownAppareil += Appareildropdown
+  });
+  document.querySelector("#appareil").innerHTML = dropdownAppareil;
+}
+
+displaydropdownAppareils();
+
+function dropdownUstensiles() {
+  let dropdownUstensile = "";
+  recipes.forEach(ustensile => {
+    const Ustensiledropdown = `<a href="#">${ustensile.ustensils}</a>`
+    dropdownUstensile += Ustensiledropdown
+  })
+  document.querySelector("#ustensile").innerHTML = dropdownUstensile;
+
+}
+
+dropdownUstensiles();
+
+
+
+
 function displaymenu() {
   let sectionmenu = "";
   recipes.forEach(recipe => {
