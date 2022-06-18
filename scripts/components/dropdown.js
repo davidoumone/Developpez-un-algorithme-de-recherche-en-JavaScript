@@ -10,7 +10,7 @@ inputfilter.addEventListener("click", () => {
 
 function diplaymenu() {
     document.getElementById("myDropdown").classList.toggle("show");
-    document.querySelector(".arrowbottom").classList.toggle("rotation");
+    // document.querySelector(".arrowbottom").classList.toggle("rotation");
 }
 
 
@@ -43,7 +43,7 @@ inputAppareils.addEventListener("click", () => {
 
 function diplaymenuAppareils() {
     document.getElementById("Appareils").classList.toggle("showappareils");
-    document.querySelector(".arrowbottom2").classList.toggle("rotation");
+    // document.querySelector(".arrowbottom2").classList.toggle("rotation");
 }
 
 
@@ -77,7 +77,7 @@ inputUstensiles.addEventListener("click", () => {
 
 function diplaymenuustensiles() {
     document.getElementById("Ustensiles").classList.toggle("showustensiles");
-    document.querySelector(".arrowbottom3").classList.toggle("rotation");
+    // document.querySelector(".arrowbottom3").classList.toggle("rotation");
 }
 
 

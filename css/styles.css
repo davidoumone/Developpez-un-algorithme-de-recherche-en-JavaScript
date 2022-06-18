@@ -72,7 +72,69 @@ header {
   bottom: 20px;
 }
 
+.tagingredient {
+  background-color: #3282f7;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.tagingredient:after {
+  content: "x";
+  color: white;
+  background-color: #3282f7;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 3px;
+}
+
+.tagappareil {
+  background-color: #68d9a4;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.tagappareil:after {
+  content: "x";
+  color: white;
+  background-color: #68d9a4;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 3px;
+}
+
+.tagustensile {
+  background-color: #ed6454;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.tagustensile:after {
+  content: "x";
+  color: white;
+  background-color: #ed6454;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 3px;
+}
+
 /*bouton ingredients*/
+
+#dropdownIngredient::after{
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+
+}
+
 .dropbtn {
   background-color: #3282f7;
   color: white;
@@ -88,12 +150,12 @@ header {
   color: white;
 }
 
-.arrowbottom {
+/* .arrowbottom {
   color: white;
   position: absolute;
   left: 15em;
-  top: 1em;
-}
+  top: 2.9em;
+} */
 
 .dropdown {
   display: inline-block;
@@ -129,6 +191,13 @@ header {
 
 /*bouton appareils*/
 
+#dropdownAppareil::after{
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+
+}
+
 .btnappareil {
   background-color: #68d9a4;
   color: white;
@@ -144,12 +213,12 @@ header {
   color: white;
 }
 
-.arrowbottom2 {
+/* .arrowbottom2 {
   color: white;
   position: absolute;
   left: 32em;
-  top: 1em;
-}
+  top: 2.9em;
+} */
 
 .content-appareils {
   display: none;
@@ -172,6 +241,13 @@ header {
 
 /*bouton ustensiles*/
 
+#dropdownUstensile::after{
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+
+}
+
 .btnustensiles {
   background-color: #ed6454;
   color: white;
@@ -187,12 +263,12 @@ header {
   color: white;
 }
 
-.arrowbottom3 {
+/* .arrowbottom3 {
   color: white;
   position: absolute;
   left: 50em;
-  top: 1em;
-}
+  top: 2.9em;
+} */
 
 .content-ustensiles {
   display: none;
@@ -285,7 +361,7 @@ header {
 .ingredients-quantite li {
   white-space: nowrap;
   line-height: 15px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .ingredients-description p {

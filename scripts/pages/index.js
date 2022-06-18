@@ -1,7 +1,15 @@
 import { recipes } from "../../data/recipes.js";
+let index;
+
+/**
+ * partie filtre du tableau recipes
+ */
 
 
 
+/**
+ * partie dropdown
+ */
 function displaydropdowningredients() {
   let dropdownIngredient = "";
   recipes.forEach(ingredient => {
@@ -16,7 +24,7 @@ displaydropdowningredients();
 function dropdownIngredients(ingredients) {
   let ingredientelement = "";
   ingredients.forEach(element => {
-    const elementingredient = `<a href="#">${element.ingredient}</a>`
+    const elementingredient = `<a class="tagIngredient" href="#">${element.ingredient}</a>`
     ingredientelement += elementingredient
   })
   return ingredientelement;
@@ -46,9 +54,30 @@ function dropdownUstensiles() {
 
 dropdownUstensiles();
 
+/**
+ * partie tags
+ */
+function clickTagIngredient() {
+  const tagsIngredients = document.querySelectorAll(".tagIngredient");
+  tagsIngredients.forEach(tagsigdt => {
+    tagsigdt.addEventListener("click", (event) => {
+      const indextagsingredients = Array.from(tagsIngredients).indexOf(event.target);
+      recuptagsIngredients(indextagsingredients);
+    })
+  })
+}
+
+clickTagIngredient();
 
 
-
+function recuptagsIngredients(elementtagsingredients) {
+  index = elementtagsingredients;
+  const tagsIngredient = recipes[index];
+  // console.log(tagsIngredient);
+}
+/**
+ * partie menu
+ */
 function displaymenu() {
   let sectionmenu = "";
   recipes.forEach(recipe => {
