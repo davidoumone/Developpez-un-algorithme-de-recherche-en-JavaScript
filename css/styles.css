@@ -70,6 +70,34 @@ header {
 .tagsresult {
   position: relative;
   bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+}
+
+#containIngredients {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+#containAppareils {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+#containUstensiles {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 
 .tagingredient {
@@ -128,11 +156,10 @@ header {
 
 /*bouton ingredients*/
 
-#dropdownIngredient::after{
+#dropdownIngredient::after {
   content: url(../assets/chevron-down-solid.svg);
   position: relative;
   left: -2.9em;
-
 }
 
 .dropbtn {
@@ -191,11 +218,10 @@ header {
 
 /*bouton appareils*/
 
-#dropdownAppareil::after{
+#dropdownAppareil::after {
   content: url(../assets/chevron-down-solid.svg);
   position: relative;
   left: -2.9em;
-
 }
 
 .btnappareil {
@@ -241,11 +267,10 @@ header {
 
 /*bouton ustensiles*/
 
-#dropdownUstensile::after{
+#dropdownUstensile::after {
   content: url(../assets/chevron-down-solid.svg);
   position: relative;
   left: -2.9em;
-
 }
 
 .btnustensiles {

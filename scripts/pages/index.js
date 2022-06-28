@@ -1,12 +1,52 @@
 import { recipes } from "../../data/recipes.js";
 let index;
-
+let tagindex;
 /**
- * partie filtre du tableau recipes
+ * partie search du tableau recipes
  */
 
+function searchIngredients(inforecipes) {
+  let tableingredients = [];
+  inforecipes.forEach(recipe => {
+    recipe.ingredients.forEach(ingredient => {
+      tableingredients.push(ingredient.ingredient)
+    })
+  })
+  tableingredients = new Set(tableingredients);
+  tableingredients = new Array(tableingredients);
+  console.log(tableingredients);
+  return tableingredients;
+}
 
+searchIngredients(recipes);
 
+function searchAppareils(inforecipes) {
+  let tableAppareils = [];
+  inforecipes.forEach(recipe => {
+    tableAppareils.push(recipe.appliance);
+  })
+  tableAppareils = new Set(tableAppareils);
+  tableAppareils = new Array(tableAppareils);
+  console.log(tableAppareils);
+  return tableAppareils;
+}
+
+searchAppareils(recipes);
+
+function searchUstensiles(inforecipes) {
+  let tableUstensiles = [];
+  inforecipes.forEach(recipe => {
+    recipe.ustensils.forEach(ustensil => {
+      tableUstensiles.push(ustensil);
+    })
+  })
+  tableUstensiles = new Set(tableUstensiles);
+  tableUstensiles = new Array(tableUstensiles);
+  console.log(tableUstensiles);
+  return tableUstensiles;
+}
+
+searchUstensiles(recipes);
 /**
  * partie dropdown
  */
@@ -23,6 +63,7 @@ displaydropdowningredients();
 
 function dropdownIngredients(ingredients) {
   let ingredientelement = "";
+
   ingredients.forEach(element => {
     const elementingredient = `<a class="tagIngredient" href="#">${element.ingredient}</a>`
     ingredientelement += elementingredient
@@ -55,7 +96,7 @@ function dropdownUstensiles() {
 dropdownUstensiles();
 
 /**
- * partie tags
+ * partie tags creation au moment du clic sur un des elements du dropdowns
  */
 function clickTagIngredient() {
   const tagsIngredients = document.querySelectorAll(".tagIngredient");
@@ -75,6 +116,80 @@ function recuptagsIngredients(elementtagsingredients) {
   const tagsIngredient = recipes[index];
   // console.log(tagsIngredient);
 }
+
+/**
+ *  ajoute un écouteur d'événement à chaque bouton tags ingredients pour la fermeture.
+*/
+
+function selectagsingredients() {
+  const ingredienttag = document.querySelectorAll(".tagingredient");
+  ingredienttag.forEach((taging) => {
+    taging.addEventListener("click", (event) => {
+      const tagings = Array.from(ingredienttag).indexOf(event.target);
+      closetagsings(tagings);
+    });
+  });
+}
+
+selectagsingredients();
+
+function closetagsings(tagings) {
+  tagindex = tagings;
+  const ingredienttag = document.querySelectorAll(".tagingredient");
+  const tagclosing = ingredienttag[tagindex];
+  console.log(tagclosing);
+  tagclosing.style.display = "none";
+}
+
+/**
+ *  ajoute un écouteur d'événement à chaque bouton tags appareils pour la fermeture.
+*/
+
+function selectagsappareils() {
+  const appareiltag = document.querySelectorAll(".tagappareil");
+  appareiltag.forEach((tagapp) => {
+    tagapp.addEventListener("click", (event) => {
+      const tagapps = Array.from(appareiltag).indexOf(event.target);
+      closetagsapps(tagapps);
+    });
+  });
+}
+
+selectagsappareils();
+
+function closetagsapps(tagapps) {
+  tagindex = tagapps;
+  const appareiltag = document.querySelectorAll(".tagappareil");
+  const tagclosing = appareiltag[tagindex];
+  console.log(tagclosing);
+  tagclosing.style.display = "none";
+}
+
+/**
+ *  ajoute un écouteur d'événement à chaque bouton tags ustensiles pour la fermeture.
+*/
+
+function selectagsustensiles() {
+  const ustensiletag = document.querySelectorAll(".tagustensile");
+  ustensiletag.forEach((tagust) => {
+    tagust.addEventListener("click", (event) => {
+      const tagusts = Array.from(ustensiletag).indexOf(event.target);
+      closetagsusts(tagusts);
+    });
+  });
+}
+
+selectagsustensiles();
+
+function closetagsusts(tagusts) {
+  tagindex = tagusts;
+  const ustensiletag = document.querySelectorAll(".tagustensile");
+  const tagclosing = ustensiletag[tagindex];
+  console.log(tagclosing);
+  tagclosing.style.display = "none";
+}
+
+
 /**
  * partie menu
  */
@@ -125,7 +240,7 @@ function displayingredient(ingredients) {
   let sectioningredients = "";
   ingredients.forEach(menu => {
     const ingredientsection = `<ul>
-  <li><strong>${menu.ingredient}: </strong> ${menu.quantity} ${menu.unit}</li>
+  <li><strong>${menu.ingredient}: </strong> ${menu.quantity ? menu.quantity : ""} ${menu.unit ? menu.unit : ""}</li>
 </ul>`
     sectioningredients += ingredientsection
   })
