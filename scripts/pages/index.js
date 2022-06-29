@@ -2,7 +2,7 @@ import { recipes } from "../../data/recipes.js";
 let index;
 let tagindex;
 /**
- * partie search du tableau recipes
+ * partie dropdown ingredients
  */
 
 function searchIngredients(inforecipes) {
@@ -18,8 +18,20 @@ function searchIngredients(inforecipes) {
   return tableingredients;
 }
 
-searchIngredients(recipes);
+function displaydropdowningredients() {
+  let dropdownIngredient = "";
+  let [utilIngredients] = searchIngredients(recipes);
+  utilIngredients.forEach(ingredient => {
+    const Ingredientdropdown = `<a class="tagIngredient" href="#">${ingredient}</a>`
+    dropdownIngredient += Ingredientdropdown
+  });
+  document.querySelector("#ingredient").innerHTML = dropdownIngredient;
+}
+displaydropdowningredients();
 
+/**
+ * partie dropdown appareils
+ */
 function searchAppareils(inforecipes) {
   let tableAppareils = [];
   inforecipes.forEach(recipe => {
@@ -31,8 +43,21 @@ function searchAppareils(inforecipes) {
   return tableAppareils;
 }
 
-searchAppareils(recipes);
+function displaydropdownAppareils() {
+  let dropdownAppareil = "";
+  let [utilsAppreils] = searchAppareils(recipes);
+  utilsAppreils.forEach(appareil => {
+    const Appareildropdown = `<a href="#">${appareil}</a>`
+    dropdownAppareil += Appareildropdown
+  });
+  document.querySelector("#appareil").innerHTML = dropdownAppareil;
+}
 
+displaydropdownAppareils();
+
+/**
+ * partie dropdown ustensiles
+ */
 function searchUstensiles(inforecipes) {
   let tableUstensiles = [];
   inforecipes.forEach(recipe => {
@@ -46,57 +71,21 @@ function searchUstensiles(inforecipes) {
   return tableUstensiles;
 }
 
-searchUstensiles(recipes);
-/**
- * partie dropdown
- */
-function displaydropdowningredients() {
-  let dropdownIngredient = "";
-  recipes.forEach(ingredient => {
-    const Ingredientdropdown = `${dropdownIngredients(ingredient.ingredients)}`
-    dropdownIngredient += Ingredientdropdown
-  });
-  document.querySelector("#ingredient").innerHTML = dropdownIngredient;
-}
-
-displaydropdowningredients();
-
-function dropdownIngredients(ingredients) {
-  let ingredientelement = "";
-
-  ingredients.forEach(element => {
-    const elementingredient = `<a class="tagIngredient" href="#">${element.ingredient}</a>`
-    ingredientelement += elementingredient
-  })
-  return ingredientelement;
-}
-
-
-function displaydropdownAppareils() {
-  let dropdownAppareil = "";
-  recipes.forEach(appareil => {
-    const Appareildropdown = `<a href="#">${appareil.appliance}</a>`
-    dropdownAppareil += Appareildropdown
-  });
-  document.querySelector("#appareil").innerHTML = dropdownAppareil;
-}
-
-displaydropdownAppareils();
-
-function dropdownUstensiles() {
+function displaydropdownUstensiles() {
   let dropdownUstensile = "";
-  recipes.forEach(ustensile => {
-    const Ustensiledropdown = `<a href="#">${ustensile.ustensils}</a>`
+  let [utilsUstensiles] = searchUstensiles(recipes);
+  utilsUstensiles.forEach(ustensile => {
+    const Ustensiledropdown = `<a href="#">${ustensile}</a>`
     dropdownUstensile += Ustensiledropdown
   })
   document.querySelector("#ustensile").innerHTML = dropdownUstensile;
 
 }
 
-dropdownUstensiles();
+displaydropdownUstensiles();
 
 /**
- * partie tags creation au moment du clic sur un des elements du dropdowns
+ * partie tags creation au moment du clic sur un des elements du dropdown ingredient
  */
 function clickTagIngredient() {
   const tagsIngredients = document.querySelectorAll(".tagIngredient");
