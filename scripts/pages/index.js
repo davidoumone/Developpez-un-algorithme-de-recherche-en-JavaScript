@@ -14,7 +14,6 @@ function searchIngredients(inforecipes) {
   })
   tableingredients = new Set(tableingredients);
   tableingredients = new Array(tableingredients);
-  console.log(tableingredients);
   return tableingredients;
 }
 
@@ -39,7 +38,6 @@ function searchAppareils(inforecipes) {
   })
   tableAppareils = new Set(tableAppareils);
   tableAppareils = new Array(tableAppareils);
-  console.log(tableAppareils);
   return tableAppareils;
 }
 
@@ -47,7 +45,7 @@ function displaydropdownAppareils() {
   let dropdownAppareil = "";
   let [utilsAppreils] = searchAppareils(recipes);
   utilsAppreils.forEach(appareil => {
-    const Appareildropdown = `<a href="#">${appareil}</a>`
+    const Appareildropdown = `<a class="tagAppareil" href="#">${appareil}</a>`
     dropdownAppareil += Appareildropdown
   });
   document.querySelector("#appareil").innerHTML = dropdownAppareil;
@@ -67,7 +65,6 @@ function searchUstensiles(inforecipes) {
   })
   tableUstensiles = new Set(tableUstensiles);
   tableUstensiles = new Array(tableUstensiles);
-  console.log(tableUstensiles);
   return tableUstensiles;
 }
 
@@ -75,7 +72,7 @@ function displaydropdownUstensiles() {
   let dropdownUstensile = "";
   let [utilsUstensiles] = searchUstensiles(recipes);
   utilsUstensiles.forEach(ustensile => {
-    const Ustensiledropdown = `<a href="#">${ustensile}</a>`
+    const Ustensiledropdown = `<a class="tagUstensile" href="#">${ustensile}</a>`
     dropdownUstensile += Ustensiledropdown
   })
   document.querySelector("#ustensile").innerHTML = dropdownUstensile;
@@ -88,95 +85,129 @@ displaydropdownUstensiles();
  * partie tags creation au moment du clic sur un des elements du dropdown ingredient
  */
 function clickTagIngredient() {
+  const containIngredients = document.querySelector("#containIngredients")
   const tagsIngredients = document.querySelectorAll(".tagIngredient");
   tagsIngredients.forEach(tagsigdt => {
-    tagsigdt.addEventListener("click", (event) => {
-      const indextagsingredients = Array.from(tagsIngredients).indexOf(event.target);
-      recuptagsIngredients(indextagsingredients);
+    tagsigdt.addEventListener("click", () => {
+      const button = document.createElement('button');
+      button.innerHTML = tagsigdt.innerHTML;
+      button.className = 'tagingredient';
+      containIngredients.appendChild(button);
     })
   })
 }
 
 clickTagIngredient();
 
+/**
+ * partie tags creation au moment du clic sur un des elements du dropdown appareils
+ */
 
-function recuptagsIngredients(elementtagsingredients) {
-  index = elementtagsingredients;
-  const tagsIngredient = recipes[index];
-  // console.log(tagsIngredient);
+function clicktagAppareil() {
+  const containAppareils = document.querySelector("#containAppareils");
+  const tagAppareils = document.querySelectorAll(".tagAppareil");
+  tagAppareils.forEach(appareil => {
+    appareil.addEventListener("click", () => {
+      const button = document.createElement('button');
+      button.innerHTML = appareil.innerHTML;
+      button.className = 'tagappareil';
+      containAppareils.appendChild(button);
+    })
+  })
 }
+
+clicktagAppareil();
+
+/**
+ * partie tags creation au moment du clic sur un des elements du dropdown Ustensiles
+ */
+
+function clicktagUstensile() {
+  const containUstensiles = document.querySelector("#containUstensiles");
+  const tagUstensiles = document.querySelectorAll(".tagUstensile");
+  tagUstensiles.forEach(ustensile => {
+    ustensile.addEventListener("click", () => {
+      const button = document.createElement('button');
+      button.innerHTML = ustensile.innerHTML;
+      button.className = 'tagustensile';
+      containUstensiles.appendChild(button);
+    })
+  })
+}
+
+clicktagUstensile();
 
 /**
  *  ajoute un écouteur d'événement à chaque bouton tags ingredients pour la fermeture.
 */
 
-function selectagsingredients() {
-  const ingredienttag = document.querySelectorAll(".tagingredient");
-  ingredienttag.forEach((taging) => {
-    taging.addEventListener("click", (event) => {
-      const tagings = Array.from(ingredienttag).indexOf(event.target);
-      closetagsings(tagings);
-    });
-  });
-}
+// function selectagsingredients() {
+//   const ingredienttag = document.querySelectorAll(".tagingredient");
+//   ingredienttag.forEach((taging) => {
+//     taging.addEventListener("click", (event) => {
+//       const tagings = Array.from(ingredienttag).indexOf(event.target);
+//       closetagsings(tagings);
+//     });
+//   });
+// }
 
-selectagsingredients();
+// selectagsingredients();
 
-function closetagsings(tagings) {
-  tagindex = tagings;
-  const ingredienttag = document.querySelectorAll(".tagingredient");
-  const tagclosing = ingredienttag[tagindex];
-  console.log(tagclosing);
-  tagclosing.style.display = "none";
-}
+// function closetagsings(tagings) {
+//   tagindex = tagings;
+//   const ingredienttag = document.querySelectorAll(".tagingredient");
+//   const tagclosing = ingredienttag[tagindex];
+//   console.log(tagclosing);
+//   tagclosing.style.display = "none";
+// }
 
-/**
- *  ajoute un écouteur d'événement à chaque bouton tags appareils pour la fermeture.
-*/
+// /**
+//  *  ajoute un écouteur d'événement à chaque bouton tags appareils pour la fermeture.
+// */
 
-function selectagsappareils() {
-  const appareiltag = document.querySelectorAll(".tagappareil");
-  appareiltag.forEach((tagapp) => {
-    tagapp.addEventListener("click", (event) => {
-      const tagapps = Array.from(appareiltag).indexOf(event.target);
-      closetagsapps(tagapps);
-    });
-  });
-}
+// function selectagsappareils() {
+//   const appareiltag = document.querySelectorAll(".tagappareil");
+//   appareiltag.forEach((tagapp) => {
+//     tagapp.addEventListener("click", (event) => {
+//       const tagapps = Array.from(appareiltag).indexOf(event.target);
+//       closetagsapps(tagapps);
+//     });
+//   });
+// }
 
-selectagsappareils();
+// selectagsappareils();
 
-function closetagsapps(tagapps) {
-  tagindex = tagapps;
-  const appareiltag = document.querySelectorAll(".tagappareil");
-  const tagclosing = appareiltag[tagindex];
-  console.log(tagclosing);
-  tagclosing.style.display = "none";
-}
+// function closetagsapps(tagapps) {
+//   tagindex = tagapps;
+//   const appareiltag = document.querySelectorAll(".tagappareil");
+//   const tagclosing = appareiltag[tagindex];
+//   console.log(tagclosing);
+//   tagclosing.style.display = "none";
+// }
 
-/**
- *  ajoute un écouteur d'événement à chaque bouton tags ustensiles pour la fermeture.
-*/
+// /**
+//  *  ajoute un écouteur d'événement à chaque bouton tags ustensiles pour la fermeture.
+// */
 
-function selectagsustensiles() {
-  const ustensiletag = document.querySelectorAll(".tagustensile");
-  ustensiletag.forEach((tagust) => {
-    tagust.addEventListener("click", (event) => {
-      const tagusts = Array.from(ustensiletag).indexOf(event.target);
-      closetagsusts(tagusts);
-    });
-  });
-}
+// function selectagsustensiles() {
+//   const ustensiletag = document.querySelectorAll(".tagustensile");
+//   ustensiletag.forEach((tagust) => {
+//     tagust.addEventListener("click", (event) => {
+//       const tagusts = Array.from(ustensiletag).indexOf(event.target);
+//       closetagsusts(tagusts);
+//     });
+//   });
+// }
 
-selectagsustensiles();
+// selectagsustensiles();
 
-function closetagsusts(tagusts) {
-  tagindex = tagusts;
-  const ustensiletag = document.querySelectorAll(".tagustensile");
-  const tagclosing = ustensiletag[tagindex];
-  console.log(tagclosing);
-  tagclosing.style.display = "none";
-}
+// function closetagsusts(tagusts) {
+//   tagindex = tagusts;
+//   const ustensiletag = document.querySelectorAll(".tagustensile");
+//   const tagclosing = ustensiletag[tagindex];
+//   console.log(tagclosing);
+//   tagclosing.style.display = "none";
+// }
 
 
 /**
