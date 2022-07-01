@@ -82,7 +82,7 @@ function displaydropdownUstensiles() {
 displaydropdownUstensiles();
 
 /**
- * partie tags creation au moment du clic sur un des elements du dropdown ingredient
+ * partie tags creation au moment du clic sur un des elements du dropdown ingredient + fermeture du tag
  */
 function clickTagIngredient() {
   const containIngredients = document.querySelector("#containIngredients")
@@ -93,14 +93,23 @@ function clickTagIngredient() {
       button.innerHTML = tagsigdt.innerHTML;
       button.className = 'tagingredient';
       containIngredients.appendChild(button);
+      closetagsings(button);
     })
   })
+
 }
 
 clickTagIngredient();
 
+function closetagsings(buttoningredient) {
+  buttoningredient.addEventListener("click", () => {
+    buttoningredient.style.display = "none";
+  })
+
+}
+
 /**
- * partie tags creation au moment du clic sur un des elements du dropdown appareils
+ * partie tags creation au moment du clic sur un des elements du dropdown appareils + fermeture du tag
  */
 
 function clicktagAppareil() {
@@ -112,14 +121,21 @@ function clicktagAppareil() {
       button.innerHTML = appareil.innerHTML;
       button.className = 'tagappareil';
       containAppareils.appendChild(button);
+      closetagapps(button);
     })
   })
 }
 
 clicktagAppareil();
 
+function closetagapps(buttonappareils) {
+  buttonappareils.addEventListener("click", () => {
+    buttonappareils.style.display = "none";
+  })
+}
+
 /**
- * partie tags creation au moment du clic sur un des elements du dropdown Ustensiles
+ * partie tags creation au moment du clic sur un des elements du dropdown Ustensiles + fermeture du tag
  */
 
 function clicktagUstensile() {
@@ -131,11 +147,18 @@ function clicktagUstensile() {
       button.innerHTML = ustensile.innerHTML;
       button.className = 'tagustensile';
       containUstensiles.appendChild(button);
+      closetagusten(button);
     })
   })
 }
 
 clicktagUstensile();
+
+function closetagusten(buttonustensiles) {
+  buttonustensiles.addEventListener("click", () => {
+    buttonustensiles.style.display = "none";
+  })
+}
 
 /**
  *  ajoute un écouteur d'événement à chaque bouton tags ingredients pour la fermeture.
