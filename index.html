@@ -40,261 +40,35 @@
           </div>
         </div>
         <div class="filter-buttons">
-          <div class="tagsresult">
-            <div id="containIngredients">
-              <!-- <button id="close1" class="tagingredient">Alcatel</button> -->
-              <!-- <button id="close2" class="tagingredient">Alcatel</button>
-              <button id="close3" class="tagingredient">Alcatel</button>
-              <button id="close4" class="tagingredient">Alcatel</button> -->
-            </div>
-            <div id="containAppareils">
-              <!-- <button id="close1" class="tagappareil">Alcatel</button> -->
-              <!-- <button id="close2" class="tagappareil">Alcatel</button>
-              <button id="close3" class="tagappareil">Alcatel</button>
-              <button id="close4" class="tagappareil">Alcatel</button> -->
-            </div>
-            <div id="containUstensiles">
-              <!-- <button id="close1" class="tagustensile">Alcatel</button> -->
-              <!-- <button id="close2" class="tagustensile">Alcatel</button>
-              <button id="close3" class="tagustensile">Alcatel</button>
-              <button id="close4" class="tagustensile">Alcatel</button> -->
-            </div>
+          <div id="tagsresult" class="tagsresult">
+            <div id="containIngredients"></div>
+            <div id="containAppareils"></div>
+            <div id="containUstensiles"></div>
           </div>
           <div id="dropdownIngredient" class="dropdown">
             <input type="text" placeholder="ingredients" class="dropbtn" />
-            <!-- <span class="arrowbottom">v</span> -->
+
             <div id="myDropdown" class="dropdown-content">
-              <div id="ingredient" class="wrap">
-                <!-- <a href="#">Lait de coco</a> -->
-              </div>
+              <div id="ingredient" class="wrap"></div>
             </div>
           </div>
           <div id="dropdownAppareil" class="dropdown">
             <input type="text" placeholder="Appareils" class="btnappareil" />
-            <!-- <span class="arrowbottom2">v</span> -->
+
             <div id="Appareils" class="content-appareils">
-              <div id="appareil" class="wrap">
-                <!-- <a href="#">Blender</a> -->
-              </div>
+              <div id="appareil" class="wrap"></div>
             </div>
           </div>
           <div id="dropdownUstensile" class="dropdown">
             <input type="text" placeholder="Ustensiles" class="btnustensiles" />
-            <!-- <span class="arrowbottom3">v</span> -->
+
             <div id="Ustensiles" class="content-ustensiles">
-              <div id="ustensile" class="wrap">
-                <!-- <a href="#">cuillère à Soupe</a> -->
-              </div>
+              <div id="ustensile" class="wrap"></div>
             </div>
           </div>
         </div>
       </section>
-      <section id="content-recettes">
-        <!-- <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong></span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article> -->
-        <!-- <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong></span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong></span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong></span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong></span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="menu-card">
-          <div class="menu-card-content">
-            <p class="title-recette">Limonade de Coco</p>
-            <div class="time">
-              <div class="time-clock">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"
-                  />
-                </svg>
-              </div>
-              <span class="time-minutes"><strong>10 min</strong> </span>
-            </div>
-            <div class="menu-ingredients">
-              <div class="ingredients-quantite">
-                <ul>
-                  <li><strong>Lait de coco:</strong> 400ml</li>
-                  <li><strong>jus de citron:</strong> 2</li>
-                  <li><strong>crème de coco:</strong> 4 cuillères</li>
-                  <li><strong>sucre:</strong> 20g</li>
-                  <li><strong>Glaçons:</strong> 2</li>
-                </ul>
-              </div>
-              <div class="ingredients-description">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-                  perferendis officiis laborum expedita praesentium illo nam
-                  ipsam inventore commodi dicta, ullam assumenda facilis
-                  perspiciatis rerum maiores quas quos vel. Minima.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article> -->
-      </section>
+      <section id="content-recettes"></section>
     </main>
     <script type="module" src="./scripts/pages/index.js"></script>
     <script src="./scripts/components/dropdown.js"></script>

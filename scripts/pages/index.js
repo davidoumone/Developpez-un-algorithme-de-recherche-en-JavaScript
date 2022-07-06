@@ -1,6 +1,5 @@
 import { recipes } from "../../data/recipes.js";
-let index;
-let tagindex;
+
 /**
  * partie dropdown ingredients
  */
@@ -159,79 +158,6 @@ function closetagusten(buttonustensiles) {
     buttonustensiles.style.display = "none";
   })
 }
-
-/**
- *  ajoute un écouteur d'événement à chaque bouton tags ingredients pour la fermeture.
-*/
-
-// function selectagsingredients() {
-//   const ingredienttag = document.querySelectorAll(".tagingredient");
-//   ingredienttag.forEach((taging) => {
-//     taging.addEventListener("click", (event) => {
-//       const tagings = Array.from(ingredienttag).indexOf(event.target);
-//       closetagsings(tagings);
-//     });
-//   });
-// }
-
-// selectagsingredients();
-
-// function closetagsings(tagings) {
-//   tagindex = tagings;
-//   const ingredienttag = document.querySelectorAll(".tagingredient");
-//   const tagclosing = ingredienttag[tagindex];
-//   console.log(tagclosing);
-//   tagclosing.style.display = "none";
-// }
-
-// /**
-//  *  ajoute un écouteur d'événement à chaque bouton tags appareils pour la fermeture.
-// */
-
-// function selectagsappareils() {
-//   const appareiltag = document.querySelectorAll(".tagappareil");
-//   appareiltag.forEach((tagapp) => {
-//     tagapp.addEventListener("click", (event) => {
-//       const tagapps = Array.from(appareiltag).indexOf(event.target);
-//       closetagsapps(tagapps);
-//     });
-//   });
-// }
-
-// selectagsappareils();
-
-// function closetagsapps(tagapps) {
-//   tagindex = tagapps;
-//   const appareiltag = document.querySelectorAll(".tagappareil");
-//   const tagclosing = appareiltag[tagindex];
-//   console.log(tagclosing);
-//   tagclosing.style.display = "none";
-// }
-
-// /**
-//  *  ajoute un écouteur d'événement à chaque bouton tags ustensiles pour la fermeture.
-// */
-
-// function selectagsustensiles() {
-//   const ustensiletag = document.querySelectorAll(".tagustensile");
-//   ustensiletag.forEach((tagust) => {
-//     tagust.addEventListener("click", (event) => {
-//       const tagusts = Array.from(ustensiletag).indexOf(event.target);
-//       closetagsusts(tagusts);
-//     });
-//   });
-// }
-
-// selectagsustensiles();
-
-// function closetagsusts(tagusts) {
-//   tagindex = tagusts;
-//   const ustensiletag = document.querySelectorAll(".tagustensile");
-//   const tagclosing = ustensiletag[tagindex];
-//   console.log(tagclosing);
-//   tagclosing.style.display = "none";
-// }
-
 
 /**
  * partie menu
