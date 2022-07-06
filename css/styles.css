@@ -1,0 +1,369 @@
+body {
+  max-width: 1500px;
+  margin: auto;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+section {
+  margin-bottom: 350px;
+}
+
+/* LOGO */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+}
+
+#logo {
+  width: 40%;
+}
+
+/* BARRE DE RECHERCHES */
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.searchTerm {
+  width: 100%;
+  border: 1px solid rgb(219, 219, 219);
+  background-color: rgb(219, 219, 219);
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.searchButton {
+  width: 40px;
+  height: 62px;
+  border: 1px solid rgb(219, 219, 219);
+  background-color: rgb(219, 219, 219);
+  text-align: center;
+  color: black;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 25px;
+}
+.search-barre {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* FILTRES DE RECHERCHES */
+
+.filter-buttons {
+  position: relative;
+  top: 200px;
+  left: 70px;
+  width: max-content;
+}
+
+.tagsresult {
+  position: relative;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+}
+
+#containIngredients {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+#containAppareils {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+#containUstensiles {
+  width: 200px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.tagingredient {
+  background-color: #3282f7;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: max-content;
+}
+
+.tagingredient:after {
+  content: "x";
+  color: white;
+  background-color: #3282f7;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 1px 4px 2px 4px;
+}
+
+.tagappareil {
+  background-color: #68d9a4;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: max-content;
+}
+
+.tagappareil:after {
+  content: "x";
+  color: white;
+  background-color: #68d9a4;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 1px 4px 2px 4px;
+}
+
+.tagustensile {
+  background-color: #ed6454;
+  padding: 8px 10px 8px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: max-content;
+}
+
+.tagustensile:after {
+  content: "x";
+  color: white;
+  background-color: #ed6454;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.25rem 0.25rem 0.25rem 0.95rem;
+  padding: 1px 4px 2px 4px;
+}
+
+/*bouton ingredients*/
+
+#dropdownIngredient::after {
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+}
+
+.dropbtn {
+  background-color: #3282f7;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.dropbtn::placeholder {
+  color: white;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3282f7;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.wrap {
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+.rotation {
+  transform: rotate(180deg);
+}
+
+/*bouton appareils*/
+
+#dropdownAppareil::after {
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+}
+
+.btnappareil {
+  background-color: #68d9a4;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.btnappareil::placeholder {
+  color: white;
+}
+
+.content-appareils {
+  display: none;
+  position: absolute;
+  background-color: #68d9a4;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.content-appareils a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+/*bouton ustensiles*/
+
+#dropdownUstensile::after {
+  content: url(../assets/chevron-down-solid.svg);
+  position: relative;
+  left: -2.9em;
+}
+
+.btnustensiles {
+  background-color: #ed6454;
+  color: white;
+  padding: 16px 50px 16px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.btnustensiles::placeholder {
+  color: white;
+}
+
+.content-ustensiles {
+  display: none;
+  position: absolute;
+  background-color: #ed6454;
+  min-width: 470px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.content-ustensiles a {
+  color: white;
+  padding: 8px 8px;
+  text-decoration: none;
+  width: 11em;
+}
+
+/* CONTENU RECETTES */
+
+#content-recettes {
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 3em;
+}
+
+.menu-card {
+  background-color: rgb(179, 179, 179);
+  width: 400px;
+  height: 500px;
+  border-radius: 5px;
+  margin-bottom: 70px;
+}
+
+.menu-card-content {
+  background-color: rgb(215, 215, 215);
+  width: 400px;
+  height: 300px;
+  position: relative;
+  top: 205px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.title-recette {
+  color: black;
+  font-size: 15px;
+  width: max-content;
+  position: absolute;
+  top: -5px;
+  left: 10px;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  width: 115px;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 335px;
+}
+
+.time-clock {
+  width: 15%;
+}
+
+.time-minutes {
+  padding-left: 5px;
+  font-size: 18px;
+}
+
+.menu-ingredients {
+  height: max-content;
+  position: absolute;
+  top: 55px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ingredients-quantite ul {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.ingredients-quantite li {
+  white-space: nowrap;
+  line-height: 15px;
+  font-size: 12px;
+}
+
+.ingredients-description p {
+  font-size: 11px;
+  height: 165px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

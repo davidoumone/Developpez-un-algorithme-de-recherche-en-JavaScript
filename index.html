@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      type="text/css"
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
+      media="all"
+      rel="stylesheet"
+    />
+
+    <title>Les petits plats</title>
+  </head>
+  <body>
+    <header id="En-tête">
+      <img id="logo" src="./assets/logo.PNG" alt="les petits plats" />
+    </header>
+    <main id="content">
+      <section id="search">
+        <div class="search-barre">
+          <div class="search">
+            <input
+              type="text"
+              class="searchTerm"
+              placeholder="Rechercher une recette"
+            />
+            <button type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="filter-buttons">
+          <div id="tagsresult" class="tagsresult">
+            <div id="containIngredients"></div>
+            <div id="containAppareils"></div>
+            <div id="containUstensiles"></div>
+          </div>
+          <div id="dropdownIngredient" class="dropdown">
+            <input type="text" placeholder="ingredients" class="dropbtn" />
+
+            <div id="myDropdown" class="dropdown-content">
+              <div id="ingredient" class="wrap"></div>
+            </div>
+          </div>
+          <div id="dropdownAppareil" class="dropdown">
+            <input type="text" placeholder="Appareils" class="btnappareil" />
+
+            <div id="Appareils" class="content-appareils">
+              <div id="appareil" class="wrap"></div>
+            </div>
+          </div>
+          <div id="dropdownUstensile" class="dropdown">
+            <input type="text" placeholder="Ustensiles" class="btnustensiles" />
+
+            <div id="Ustensiles" class="content-ustensiles">
+              <div id="ustensile" class="wrap"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="content-recettes"></section>
+    </main>
+    <script type="module" src="./scripts/pages/index.js"></script>
+    <script src="./scripts/components/dropdown.js"></script>
+  </body>
+</html>
