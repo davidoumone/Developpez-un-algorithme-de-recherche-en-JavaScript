@@ -204,10 +204,6 @@ header {
   text-decoration: none;
 }
 
-.show {
-  display: block;
-}
-
 .rotation {
   transform: rotate(180deg);
 }
@@ -250,10 +246,6 @@ header {
   text-decoration: none;
 }
 
-.showappareils {
-  display: block;
-}
-
 /*bouton ustensiles*/
 
 #dropdownUstensile::after {
@@ -291,10 +283,6 @@ header {
   padding: 8px 8px;
   text-decoration: none;
   width: 11em;
-}
-
-.showustensiles {
-  display: block;
 }
 
 /* CONTENU RECETTES */

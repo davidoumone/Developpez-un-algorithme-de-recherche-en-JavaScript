@@ -9,7 +9,7 @@ inputfilter.addEventListener("click", () => {
 });
 
 function diplaymenu() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("myDropdown").style.display ="block";
 }
 
 
@@ -41,7 +41,7 @@ inputAppareils.addEventListener("click", () => {
 });
 
 function diplaymenuAppareils() {
-    document.getElementById("Appareils").classList.toggle("showappareils");
+    document.getElementById("Appareils").style.display ="block";
 }
 
 
@@ -74,7 +74,7 @@ inputUstensiles.addEventListener("click", () => {
 });
 
 function diplaymenuustensiles() {
-    document.getElementById("Ustensiles").classList.toggle("showustensiles");
+    document.getElementById("Ustensiles").style.display ="block";
 }
 
 

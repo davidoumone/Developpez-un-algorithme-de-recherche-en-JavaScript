@@ -88,6 +88,7 @@ function clickTagIngredient() {
   const tagsIngredients = document.querySelectorAll(".tagIngredient");
   tagsIngredients.forEach(tagsigdt => {
     tagsigdt.addEventListener("click", () => {
+      document.getElementById("myDropdown").style.display ="none";
       const button = document.createElement('button');
       button.innerHTML = tagsigdt.innerHTML;
       button.className = 'tagingredient';
@@ -116,6 +117,7 @@ function clicktagAppareil() {
   const tagAppareils = document.querySelectorAll(".tagAppareil");
   tagAppareils.forEach(appareil => {
     appareil.addEventListener("click", () => {
+      document.getElementById("Appareils").style.display ="none";
       const button = document.createElement('button');
       button.innerHTML = appareil.innerHTML;
       button.className = 'tagappareil';
@@ -142,6 +144,7 @@ function clicktagUstensile() {
   const tagUstensiles = document.querySelectorAll(".tagUstensile");
   tagUstensiles.forEach(ustensile => {
     ustensile.addEventListener("click", () => {
+      document.getElementById("Ustensiles").style.display ="none";
       const button = document.createElement('button');
       button.innerHTML = ustensile.innerHTML;
       button.className = 'tagustensile';
