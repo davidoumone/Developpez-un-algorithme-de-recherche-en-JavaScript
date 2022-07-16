@@ -1,5 +1,7 @@
 import { recipes } from "../../data/recipes.js";
-
+let tagIngredients = [];
+let tagAppareil = [];
+let tagUstensile = [];
 /**
  * partie dropdown ingredients
  */
@@ -88,12 +90,14 @@ function clickTagIngredient() {
   const tagsIngredients = document.querySelectorAll(".tagIngredient");
   tagsIngredients.forEach(tagsigdt => {
     tagsigdt.addEventListener("click", () => {
-      document.getElementById("myDropdown").style.display ="none";
+      tagIngredients.push(tagsigdt.innerHTML);
+      document.getElementById("myDropdown").style.display = "none";
       const button = document.createElement('button');
       button.innerHTML = tagsigdt.innerHTML;
       button.className = 'tagingredient';
       containIngredients.appendChild(button);
       closetagsings(button);
+      filteringredients();
     })
   })
 
@@ -104,6 +108,8 @@ clickTagIngredient();
 function closetagsings(buttoningredient) {
   buttoningredient.addEventListener("click", () => {
     buttoningredient.style.display = "none";
+    tagIngredients.pop(buttoningredient.innerHTML);
+    filteringredients();
   })
 
 }
@@ -117,12 +123,14 @@ function clicktagAppareil() {
   const tagAppareils = document.querySelectorAll(".tagAppareil");
   tagAppareils.forEach(appareil => {
     appareil.addEventListener("click", () => {
-      document.getElementById("Appareils").style.display ="none";
+      tagAppareil.push(appareil.innerHTML);
+      document.getElementById("Appareils").style.display = "none";
       const button = document.createElement('button');
       button.innerHTML = appareil.innerHTML;
       button.className = 'tagappareil';
       containAppareils.appendChild(button);
       closetagapps(button);
+      filterappareils();
     })
   })
 }
@@ -132,6 +140,8 @@ clicktagAppareil();
 function closetagapps(buttonappareils) {
   buttonappareils.addEventListener("click", () => {
     buttonappareils.style.display = "none";
+    tagAppareil.pop(buttonappareils.innerHTML);
+    filterappareils();
   })
 }
 
@@ -144,12 +154,14 @@ function clicktagUstensile() {
   const tagUstensiles = document.querySelectorAll(".tagUstensile");
   tagUstensiles.forEach(ustensile => {
     ustensile.addEventListener("click", () => {
-      document.getElementById("Ustensiles").style.display ="none";
+      tagUstensile.push(ustensile.innerHTML);
+      document.getElementById("Ustensiles").style.display = "none";
       const button = document.createElement('button');
       button.innerHTML = ustensile.innerHTML;
       button.className = 'tagustensile';
       containUstensiles.appendChild(button);
       closetagusten(button);
+      filterustensiles();
     })
   })
 }
@@ -159,15 +171,92 @@ clicktagUstensile();
 function closetagusten(buttonustensiles) {
   buttonustensiles.addEventListener("click", () => {
     buttonustensiles.style.display = "none";
+    tagUstensile.pop(buttonustensiles.innerHTML);
+    filterustensiles();
   })
 }
 
 /**
+ * partie filtre tableau recipes avec les tags ingredients
+ */
+function filteringredients() {
+  let resultat = [];
+  for (let i = 0; i < recipes.length; i++) {
+    const element = recipes[i];
+    for (let j = 0; j < tagIngredients.length; j++) {
+      const resulttagingredient = tagIngredients[j];
+      for (let x = 0; x < element.ingredients.length; x++) {
+        const ingredient = element.ingredients[x];
+        if (ingredient.ingredient === resulttagingredient) {
+          resultat.push(element)
+        }
+      }
+    }
+  }
+
+  if (resultat.length > 0) {
+    displaymenu(resultat);
+  } else {
+    displaymenu(recipes);
+  }
+}
+
+/**
+ * partie filtre tableau recipes avec les tags appareils
+ */
+
+function filterappareils() {
+  let resultfilterapps = [];
+  for (let a = 0; a < recipes.length; a++) {
+    const recipesAppareil = recipes[a];
+    for (let b = 0; b < tagAppareil.length; b++) {
+      const resultappareil = tagAppareil[b];
+      if (recipesAppareil.appliance === resultappareil) {
+        resultfilterapps.push(recipesAppareil);
+      }
+    }
+  }
+  if (resultfilterapps.length > 0) {
+    displaymenu(resultfilterapps);
+  } else {
+    displaymenu(recipes);
+  }
+}
+
+/**
+ * partie filtre tableau recipes avec les tags ustensiles
+ */
+
+function filterustensiles() {
+  let resultfilterustensiles = [];
+  for (let c = 0; c < recipes.length; c++) {
+    const recipesUstensiles = recipes[c];
+    for (let d = 0; d < recipesUstensiles.ustensils.length; d++) {
+      const ustensile = recipesUstensiles.ustensils[d];
+      for (let e = 0; e < tagUstensile.length; e++) {
+        const resultustensile = tagUstensile[e];
+        if (ustensile === resultustensile) {
+          resultfilterustensiles.push(recipesUstensiles);
+        }
+      }
+    }
+  }
+
+  if (resultfilterustensiles.length > 0) {
+    displaymenu(resultfilterustensiles);
+  } else {
+    displaymenu(recipes);
+  }
+}
+
+
+
+/**
  * partie menu
  */
-function displaymenu() {
+function displaymenu(recettes) {
   let sectionmenu = "";
-  recipes.forEach(recipe => {
+  recettes.forEach(recipe => {
     const MenuContain = `<article class="menu-card">
       <div class="menu-card-content">
         <p class="title-recette">${recipe.name}</p>
@@ -199,7 +288,7 @@ function displaymenu() {
   document.querySelector("#content-recettes").innerHTML = sectionmenu;
 }
 
-displaymenu();
+displaymenu(recipes);
 
 
 
