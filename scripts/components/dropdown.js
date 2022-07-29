@@ -9,7 +9,7 @@ inputfilter.addEventListener("click", () => {
 });
 
 function diplaymenu() {
-    document.getElementById("myDropdown").style.display ="block";
+    document.getElementById("myDropdown").style.display = "block";
 }
 
 
@@ -41,7 +41,7 @@ inputAppareils.addEventListener("click", () => {
 });
 
 function diplaymenuAppareils() {
-    document.getElementById("Appareils").style.display ="block";
+    document.getElementById("Appareils").style.display = "block";
 }
 
 
@@ -74,7 +74,7 @@ inputUstensiles.addEventListener("click", () => {
 });
 
 function diplaymenuustensiles() {
-    document.getElementById("Ustensiles").style.display ="block";
+    document.getElementById("Ustensiles").style.display = "block";
 }
 
 
@@ -92,6 +92,30 @@ function filterUstensiles() {
             a[i].style.display = "";
         } else {
             a[i].style.display = "none";
+        }
+    }
+}
+
+// Fermez la liste déroulante si l'utilisateur clique en dehors de celle-ci
+window.onclick = function (e) {
+    if (!e.target.matches('.dropbtn')) {
+        const dropdownings = document.getElementById("myDropdown");
+        if (dropdownings.style.display = "block") {
+            dropdownings.style.display = "none";
+        }
+    }
+
+    if (!e.target.matches('.btnappareil')) {
+        const dropdownapps = document.getElementById("Appareils");
+        if (dropdownapps.style.display = "block") {
+            dropdownapps.style.display = "none";
+        }
+    }
+
+    if (!e.target.matches('.btnustensiles')) {
+        const dropdownusts = document.getElementById("Ustensiles");
+        if (dropdownusts.style.display = "block") {
+            dropdownusts.style.display = "none";
         }
     }
 }

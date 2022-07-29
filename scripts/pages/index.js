@@ -3,6 +3,60 @@ let tagIngredients = [];
 let tagAppareil = [];
 let tagUstensile = [];
 /**
+ * filtre les recettes sur input searchTerm
+ */
+const filtersearch = document.querySelector(".searchTerm");
+
+filtersearch.addEventListener("keyup", () => {
+  filterRecettes();
+})
+
+function filterRecettes() {
+  let resultfilterInput = [];
+  let filter = filtersearch.value.toLowerCase();
+  recipes.forEach(Input => {
+    Input.ingredients.forEach(dataInput => {
+      // console.log(Input.name);
+      // console.log(Input.description);
+      // console.log(dataInput.ingredient);
+      if (Input.name.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+      if (Input.description.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+      if (dataInput.ingredient.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+    })
+  })
+  resultfilterInput = new Set(resultfilterInput);
+  resultfilterInput = new Array(resultfilterInput);
+  console.log(resultfilterInput);
+  // if (resultfilterInput.length > 0) {
+  //   displaymenu(resultfilterInput);
+  // } else {
+  //   displaymenu(recipes);
+  // }
+}
+
+/**
+ * filtre les recettes sur input searchTerm avec les elements du DOM
+ */
+
+// function filterRecettes() {
+//   let filter = filtersearch.value.toUpperCase();
+//   const recettes = document.getElementsByClassName("menu-card");
+//   for (let i = 0; i < recettes.length; i++) {
+//     let txtValue = recettes[i].innerHTML
+//     if (txtValue.toUpperCase().indexOf(filter) >= 4) {
+//       recettes[i].style.display = "";
+//     } else {
+//       recettes[i].style.display = "none";
+//     }
+//   }
+// }
+/**
  * partie dropdown ingredients
  */
 
@@ -97,7 +151,7 @@ function clickTagIngredient() {
       button.className = 'tagingredient';
       containIngredients.appendChild(button);
       closetagsings(button);
-      filteringredients();
+      filterAll();
     })
   })
 
@@ -109,7 +163,7 @@ function closetagsings(buttoningredient) {
   buttoningredient.addEventListener("click", () => {
     buttoningredient.style.display = "none";
     tagIngredients.pop(buttoningredient.innerHTML);
-    filteringredients();
+    filterAll();
   })
 
 }
@@ -130,7 +184,7 @@ function clicktagAppareil() {
       button.className = 'tagappareil';
       containAppareils.appendChild(button);
       closetagapps(button);
-      filterappareils();
+      filterAll();
     })
   })
 }
@@ -141,7 +195,7 @@ function closetagapps(buttonappareils) {
   buttonappareils.addEventListener("click", () => {
     buttonappareils.style.display = "none";
     tagAppareil.pop(buttonappareils.innerHTML);
-    filterappareils();
+    filterAll();
   })
 }
 
@@ -161,7 +215,7 @@ function clicktagUstensile() {
       button.className = 'tagustensile';
       containUstensiles.appendChild(button);
       closetagusten(button);
-      filterustensiles();
+      filterAll();
     })
   })
 }
@@ -172,17 +226,37 @@ function closetagusten(buttonustensiles) {
   buttonustensiles.addEventListener("click", () => {
     buttonustensiles.style.display = "none";
     tagUstensile.pop(buttonustensiles.innerHTML);
-    filterustensiles();
+    filterAll();
   })
+}
+
+/**
+ * fonction qui appelle les autres fonctions de filtres avec les tags
+ */
+
+function filterAll() {
+  let filterings = filteringredients(recipes);
+  console.log(filterings);
+  let filterapps = filterappareils(filterings);
+  console.log(filterapps);
+  let filterust = filterustensiles(filterapps);
+  console.log(filterust);
+  // console.log(displaymenu(filterust));
+  /**
+   * mettre a jour les dropdowns avec le dernier filtre
+   */
 }
 
 /**
  * partie filtre tableau recipes avec les tags ingredients
  */
-function filteringredients() {
+function filteringredients(recette) {
+  if (tagIngredients.length === 0) {
+    return recette
+  }
   let resultat = [];
-  for (let i = 0; i < recipes.length; i++) {
-    const element = recipes[i];
+  for (let i = 0; i < recette.length; i++) {
+    const element = recette[i];
     for (let j = 0; j < tagIngredients.length; j++) {
       const resulttagingredient = tagIngredients[j];
       for (let x = 0; x < element.ingredients.length; x++) {
@@ -194,21 +268,20 @@ function filteringredients() {
     }
   }
 
-  if (resultat.length > 0) {
-    displaymenu(resultat);
-  } else {
-    displaymenu(recipes);
-  }
+  return resultat;
 }
 
 /**
  * partie filtre tableau recipes avec les tags appareils
  */
 
-function filterappareils() {
+function filterappareils(recette) {
+  if (tagAppareil.length === 0) {
+    return recette
+  }
   let resultfilterapps = [];
-  for (let a = 0; a < recipes.length; a++) {
-    const recipesAppareil = recipes[a];
+  for (let a = 0; a < recette.length; a++) {
+    const recipesAppareil = recette[a];
     for (let b = 0; b < tagAppareil.length; b++) {
       const resultappareil = tagAppareil[b];
       if (recipesAppareil.appliance === resultappareil) {
@@ -216,21 +289,20 @@ function filterappareils() {
       }
     }
   }
-  if (resultfilterapps.length > 0) {
-    displaymenu(resultfilterapps);
-  } else {
-    displaymenu(recipes);
-  }
+  return resultfilterapps;
 }
 
 /**
  * partie filtre tableau recipes avec les tags ustensiles
  */
 
-function filterustensiles() {
+function filterustensiles(recette) {
+  if (tagUstensile.length === 0) {
+    return recette
+  }
   let resultfilterustensiles = [];
-  for (let c = 0; c < recipes.length; c++) {
-    const recipesUstensiles = recipes[c];
+  for (let c = 0; c < recette.length; c++) {
+    const recipesUstensiles = recette[c];
     for (let d = 0; d < recipesUstensiles.ustensils.length; d++) {
       const ustensile = recipesUstensiles.ustensils[d];
       for (let e = 0; e < tagUstensile.length; e++) {
@@ -242,11 +314,7 @@ function filterustensiles() {
     }
   }
 
-  if (resultfilterustensiles.length > 0) {
-    displaymenu(resultfilterustensiles);
-  } else {
-    displaymenu(recipes);
-  }
+  return resultfilterustensiles;
 }
 
 
