@@ -58,6 +58,18 @@ header {
   transform: translate(-50%, -50%);
 }
 
+#message-erreur {
+  position: relative;
+  top: 9em;
+  left: 5em;
+  width: max-content;
+}
+#erreur {
+  color: rgb(176, 63, 63);
+  font-size: 14px;
+  display: none;
+}
+
 /* FILTRES DE RECHERCHES */
 
 .filter-buttons {
@@ -79,25 +91,28 @@ header {
 #containIngredients {
   width: 200px;
   height: max-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #containAppareils {
   width: 200px;
   height: max-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #containUstensiles {
   width: 200px;
   height: max-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .tagingredient {
@@ -107,6 +122,7 @@ header {
   border-radius: 5px;
   border: none;
   width: max-content;
+  margin-bottom: 12px;
 }
 
 .tagingredient:after {
@@ -116,7 +132,7 @@ header {
   border: 2px solid white;
   border-radius: 100%;
   margin: 0.25rem 0.25rem 0.25rem 0.95rem;
-  padding: 1px 4px 2px 4px;
+  padding: 0px 5px 2px 5px;
 }
 
 .tagappareil {
@@ -126,6 +142,7 @@ header {
   border-radius: 5px;
   border: none;
   width: max-content;
+  margin-bottom: 12px;
 }
 
 .tagappareil:after {
@@ -135,7 +152,7 @@ header {
   border: 2px solid white;
   border-radius: 100%;
   margin: 0.25rem 0.25rem 0.25rem 0.95rem;
-  padding: 1px 4px 2px 4px;
+  padding: 0px 5px 2px 5px;
 }
 
 .tagustensile {
@@ -145,6 +162,7 @@ header {
   border-radius: 5px;
   border: none;
   width: max-content;
+  margin-bottom: 12px;
 }
 
 .tagustensile:after {
@@ -154,7 +172,7 @@ header {
   border: 2px solid white;
   border-radius: 100%;
   margin: 0.25rem 0.25rem 0.25rem 0.95rem;
-  padding: 1px 4px 2px 4px;
+  padding: 0px 5px 2px 5px;
 }
 
 /*bouton ingredients*/
