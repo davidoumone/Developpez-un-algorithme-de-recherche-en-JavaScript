@@ -14,31 +14,44 @@ filtersearch.addEventListener("keyup", () => {
 function filterRecettes(recettes) {
   let resultfilterInput = [];
   let filter = filtersearch.value.toLowerCase();
-  
+  const erreur = document.querySelector("#erreur");
+  if (filter.length <=2) {
+    return recettes
+  }
   recettes.forEach(Input => {
     Input.ingredients.forEach(dataInput => {
       // console.log(Input.name);
       // console.log(Input.description);
       // console.log(dataInput.ingredient);
 
-      // if (Input.name.toLowerCase().includes(filter)) {
+      if (Input.name.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+
+      if (Input.description.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+
+      if (dataInput.ingredient.toLowerCase().includes(filter)) {
+        resultfilterInput.push(Input);
+      }
+
+
+
+      // if (Input.name.toLowerCase() === filter) {
       //   resultfilterInput.push(Input);
       // }
-
-      if (Input.name.toLowerCase() === filter) {
-        resultfilterInput.push(Input);
-      }
-      if (Input.description.toLowerCase() === filter) {
-        resultfilterInput.push(Input);
-      }
-      if (dataInput.ingredient.toLowerCase() === filter) {
-        resultfilterInput.push(Input);
-      }
+      // if (Input.description.toLowerCase() === filter) {
+      //   resultfilterInput.push(Input);
+      // }
+      // if (dataInput.ingredient.toLowerCase() === filter) {
+      //   resultfilterInput.push(Input);
+      // }
     })
   })
   resultfilterInput = new Set(resultfilterInput);
   resultfilterInput = new Array(resultfilterInput);
-  console.log(resultfilterInput);
+  // console.log(resultfilterInput);
   // if (resultfilterInput.length > 0) {
   //   displaymenu(resultfilterInput);
   // } else {

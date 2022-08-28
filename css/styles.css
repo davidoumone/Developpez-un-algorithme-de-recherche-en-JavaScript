@@ -58,6 +58,18 @@ header {
   transform: translate(-50%, -50%);
 }
 
+#message-erreur {
+  position: relative;
+  top: 9em;
+  left: 5em;
+  width: max-content;
+}
+#erreur {
+  color: rgb(176, 63, 63);
+  font-size: 14px;
+  display: none;
+}
+
 /* FILTRES DE RECHERCHES */
 
 .filter-buttons {
