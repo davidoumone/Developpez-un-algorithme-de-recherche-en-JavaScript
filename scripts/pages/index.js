@@ -8,55 +8,27 @@ let tagUstensile = [];
 const filtersearch = document.querySelector(".searchTerm");
 
 filtersearch.addEventListener("keyup", () => {
-  filterRecettes(recipes);
+  filterAll(recipes);
 })
 
-function filterRecettes(recettes) {
+function searchBar(recettes) {
   let resultfilterInput = [];
   let filter = filtersearch.value.toLowerCase();
-  const erreur = document.querySelector("#erreur");
-  if (filter.length <=2) {
-    return recettes
-  }
   recettes.forEach(Input => {
-    Input.ingredients.forEach(dataInput => {
-      // console.log(Input.name);
-      // console.log(Input.description);
-      // console.log(dataInput.ingredient);
-
-      if (Input.name.toLowerCase().includes(filter)) {
-        resultfilterInput.push(Input);
-      }
-
-      if (Input.description.toLowerCase().includes(filter)) {
-        resultfilterInput.push(Input);
-      }
-
-      if (dataInput.ingredient.toLowerCase().includes(filter)) {
-        resultfilterInput.push(Input);
-      }
-
-
-
-      // if (Input.name.toLowerCase() === filter) {
-      //   resultfilterInput.push(Input);
-      // }
-      // if (Input.description.toLowerCase() === filter) {
-      //   resultfilterInput.push(Input);
-      // }
-      // if (dataInput.ingredient.toLowerCase() === filter) {
-      //   resultfilterInput.push(Input);
-      // }
-    })
+    if (Input.name.toLowerCase().includes(filter)) {
+      resultfilterInput.push(Input);
+    } else if (Input.description.toLowerCase().includes(filter)) {
+      resultfilterInput.push(Input);
+    } else {
+      Input.ingredients.forEach(dataInput => {
+        if (dataInput.ingredient.toLowerCase().includes(filter)) {
+          resultfilterInput.push(Input);
+        }
+      })
+    }
   })
-  resultfilterInput = new Set(resultfilterInput);
-  resultfilterInput = new Array(resultfilterInput);
-  // console.log(resultfilterInput);
-  // if (resultfilterInput.length > 0) {
-  //   displaymenu(resultfilterInput);
-  // } else {
-  //   displaymenu(recipes);
-  // }
+
+  return resultfilterInput;
 }
 
 /**
@@ -230,7 +202,8 @@ function closetagusten(buttonustensiles) {
  */
 
 function filterAll() {
-  let filterings = filteringredients(recipes);
+  let searchFilter = searchBar(recipes)
+  let filterings = filteringredients(searchFilter);
   let filterapps = filterappareils(filterings);
   let filterust = filterustensiles(filterapps);
   displaydropdowningredients(filterust);
@@ -242,20 +215,20 @@ function filterAll() {
 /**
  * partie filtre tableau recipes avec les tags ingredients
  */
-function filteringredients(recette) {
+function filteringredients(recettes) {
   if (tagIngredients.length === 0) {
-    return recette
+    return recettes
   }
-  let resultat = [];
-  for (let i = 0; i < recette.length; i++) {
-    const element = recette[i];
+  let resultats = [];
+  for (let i = 0; i < recettes.length; i++) {
+    const element = recettes[i];
     const ingredients = element.ingredients.map(x => x.ingredient)
     if (tagIngredients.every(t => ingredients.includes(t))) {
-      resultat.push(element)
+      resultats.push(element)
     }
 
   }
-  return resultat;
+  return resultats;
 }
 
 /**
@@ -299,9 +272,17 @@ function filterustensiles(recette) {
 /**
  * partie menu
  */
-function displaymenu(recettes) {
+function displaymenu(recette) {
   let sectionmenu = "";
-  recettes.forEach(recipe => {
+  if (recette.length === 0) {
+    sectionmenu = `<div id="message-erreur">
+    <span id="erreur"
+      >Aucune recette ne correspond à vos critères... vous pouvez
+      rechercher 'limonade', 'lait', etc.</span
+    >
+  </div>`
+  }
+  recette.forEach(recipe => {
     const MenuContain = `<article class="menu-card">
       <div class="menu-card-content">
         <p class="title-recette">${recipe.name}</p>
@@ -345,4 +326,4 @@ function displayingredient(ingredients) {
   return sectioningredients
 }
 
-filterAll()
+filterAll(recipes)

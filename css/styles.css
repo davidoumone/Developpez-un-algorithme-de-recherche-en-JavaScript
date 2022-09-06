@@ -67,7 +67,7 @@ header {
 #erreur {
   color: rgb(176, 63, 63);
   font-size: 14px;
-  display: none;
+  display: block;
 }
 
 /* FILTRES DE RECHERCHES */
