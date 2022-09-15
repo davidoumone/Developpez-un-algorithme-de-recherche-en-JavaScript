@@ -1,10 +1,14 @@
 import { recipes } from "../../data/recipes.js";
+// import { recipes as rp } from "../../data/recipes.js";
 let tagIngredients = [];
 let tagAppareil = [];
 let tagUstensile = [];
 /**
  * filtre les recettes sur input searchTerm
  */
+// const recipes = [...rp, ...rp, ...rp, ...rp, ...rp]
+// console.log(recipes.length);
+
 const filtersearch = document.querySelector(".searchTerm");
 
 filtersearch.addEventListener("keyup", () => {
@@ -12,22 +16,26 @@ filtersearch.addEventListener("keyup", () => {
 })
 
 function searchBar(recettes) {
+  console.time("tracker");
   let resultfilterInput = [];
   let filter = filtersearch.value.toLowerCase();
-  recettes.forEach(Input => {
-    if (Input.name.toLowerCase().includes(filter)) {
-      resultfilterInput.push(Input);
-    } else if (Input.description.toLowerCase().includes(filter)) {
-      resultfilterInput.push(Input);
+  for (let s = 0; s < recettes.length; s++) {
+    const resultat = recettes[s];
+    if (resultat.name.toLowerCase().includes(filter)) {
+      resultfilterInput.push(resultat);
+    } else if (resultat.description.toLowerCase().includes(filter)) {
+      resultfilterInput.push(resultat);
     } else {
-      Input.ingredients.forEach(dataInput => {
-        if (dataInput.ingredient.toLowerCase().includes(filter)) {
-          resultfilterInput.push(Input);
+      for (let t = 0; t < resultat.ingredients.length; t++) {
+        const resultat2 = resultat.ingredients[t];
+        if (resultat2.ingredient.toLowerCase().includes(filter)) {
+          resultfilterInput.push(resultat);
         }
-      })
+      }
     }
-  })
 
+  }
+  console.timeEnd("tracker");
   return resultfilterInput;
 }
 
