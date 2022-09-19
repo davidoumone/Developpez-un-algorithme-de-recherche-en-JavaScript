@@ -291,7 +291,7 @@ function displaymenu(recette) {
   recette.forEach(recipe => {
     const MenuContain = `<article class="menu-card">
       <div class="menu-card-content">
-        <p class="title-recette">${recipe.name}</p>
+        <h3 class="title-recette">${recipe.name}</h3>
         <div class="time">
           <div class="time-clock">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
