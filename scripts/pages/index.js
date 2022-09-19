@@ -1,10 +1,15 @@
 import { recipes } from "../../data/recipes.js";
+// import { recipes as rp } from "../../data/recipes.js";
 let tagIngredients = [];
 let tagAppareil = [];
 let tagUstensile = [];
 /**
  * filtre les recettes sur input searchTerm
  */
+
+// const recipes = [...rp, ...rp, ...rp, ...rp, ...rp]
+// console.log(recipes.length);
+
 const filtersearch = document.querySelector(".searchTerm");
 
 filtersearch.addEventListener("keyup", () => {
@@ -12,6 +17,7 @@ filtersearch.addEventListener("keyup", () => {
 })
 
 function searchBar(recettes) {
+  console.time("tracker");
   let resultfilterInput = [];
   let filter = filtersearch.value.toLowerCase();
   recettes.forEach(Input => {
@@ -27,7 +33,7 @@ function searchBar(recettes) {
       })
     }
   })
-
+  console.timeEnd("tracker");
   return resultfilterInput;
 }
 
@@ -285,7 +291,7 @@ function displaymenu(recette) {
   recette.forEach(recipe => {
     const MenuContain = `<article class="menu-card">
       <div class="menu-card-content">
-        <p class="title-recette">${recipe.name}</p>
+        <h3 class="title-recette">${recipe.name}</h3>
         <div class="time">
           <div class="time-clock">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
