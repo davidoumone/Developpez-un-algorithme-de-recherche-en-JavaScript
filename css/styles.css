@@ -9,6 +9,10 @@ section {
   margin-bottom: 350px;
 }
 
+h5{
+  display: none;
+}
+
 /* LOGO */
 
 header {
