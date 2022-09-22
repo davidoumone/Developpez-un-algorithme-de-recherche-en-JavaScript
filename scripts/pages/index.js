@@ -13,7 +13,9 @@ let tagUstensile = [];
 const filtersearch = document.querySelector(".searchTerm");
 
 filtersearch.addEventListener("keyup", () => {
-  filterAll(recipes);
+  if (filtersearch.value.length > 2) {
+    filterAll(recipes);
+  }
 })
 
 function searchBar(recettes) {
