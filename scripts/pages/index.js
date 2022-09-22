@@ -15,6 +15,8 @@ const filtersearch = document.querySelector(".searchTerm");
 filtersearch.addEventListener("keyup", () => {
   if (filtersearch.value.length > 2) {
     filterAll(recipes);
+  } else{
+    filterAll(recipes);
   }
 })
 
